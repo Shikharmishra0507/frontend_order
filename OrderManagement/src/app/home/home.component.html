@@ -1,0 +1,23 @@
+<div style="justify-content: center;">
+  <ng-container *ngIf="products.length > 0; else noProducts">
+    <mat-card class="product-card" *ngFor="let product of products" >
+      <mat-card-header>
+        <mat-card-title>{{ product.title }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="product.image" alt="Product Image">
+      <mat-card-content>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price | currency }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Add to Cart</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+  
+  <ng-template #noProducts>
+    <p>No products available.</p>
+  </ng-template>
+</div>
+
+  
